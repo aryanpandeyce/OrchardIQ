@@ -1,9 +1,8 @@
-"""POST /ask endpoint with SSE streaming and JSON response options."""
-
 import json
 import asyncio
 from collections import defaultdict
 import time
+from typing import Dict, List, Any, Optional
 from fastapi import APIRouter, Depends, Request, HTTPException
 from pydantic import BaseModel, Field
 from sse_starlette.sse import EventSourceResponse
