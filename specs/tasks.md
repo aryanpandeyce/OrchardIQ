@@ -37,12 +37,12 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 4: Analyst Agent & Statistical ML Tools
-- [ ] **TASK-4.1**: Implement statistical calculation tools for Period-over-Period (PoP) variance, contribution analysis, and metric lifts (`src/ml/stats.py`). *[REQ-ML-01]*
-- [ ] **TASK-4.2**: Implement PyTorch weekly demand forecaster (LSTM/MLP architecture) with training/evaluation pipelines and MAPE metrics (`src/ml/forecast.py`). *[REQ-ML-02]*
-- [ ] **TASK-4.3**: Implement scikit-learn `IsolationForest` time-series anomaly detection tool for claims and return spikes (`src/ml/anomaly.py`). *[REQ-ML-03]*
-- [ ] **TASK-4.4**: Implement versioned model registry saving trained model weights and metadata in `models/registry/` (`src/ml/registry.py`). *[REQ-ML-04]*
-- [ ] **TASK-4.5**: Implement Analyst Agent tool wrappers exposing statistical, forecasting, and anomaly tools to LangGraph agents (`src/agents/analyst_agent.py`). *[REQ-ML-01, REQ-ML-02, REQ-ML-03]*
-- [ ] **TASK-4.6**: Write comprehensive test suite for statistical calculations, ML models, and model registry (`tests/test_ml.py`). *[REQ-ML-01, REQ-ML-02, REQ-ML-03]*
+- [x] **TASK-4.1**: Implement statistical calculation tools for Period-over-Period (PoP) variance, contribution analysis, and metric lifts (`src/ml/stats.py`). *[REQ-ML-01]*
+- [x] **TASK-4.2**: Implement PyTorch weekly demand forecaster (LSTM/MLP architecture) with training/evaluation pipelines and MAPE metrics (`src/ml/forecast.py`). *[REQ-ML-02]*
+- [x] **TASK-4.3**: Implement scikit-learn `IsolationForest` time-series anomaly detection tool for claims and return spikes (`src/ml/anomaly.py`). *[REQ-ML-03]*
+- [x] **TASK-4.4**: Implement versioned model registry saving trained model weights and metadata in `models/registry/` (`src/ml/registry.py`). *[REQ-ML-04]*
+- [x] **TASK-4.5**: Implement Analyst Agent tool wrappers exposing statistical, forecasting, and anomaly tools to LangGraph agents (`src/agents/analyst_agent.py`). *[REQ-ML-01, REQ-ML-02, REQ-ML-03]*
+- [x] **TASK-4.6**: Write comprehensive test suite for statistical calculations, ML models, and model registry (`tests/test_ml.py`). *[REQ-ML-01, REQ-ML-02, REQ-ML-03]*
 
 ---
 
