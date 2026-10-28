@@ -47,7 +47,9 @@ export async function askQuestionStream(
   role: string,
   onStep: (step: StepLog) => void,
   onAnswer: (answer: AnswerPayload) => void,
-  onError?: (err: string) => void
+  onError?: (err: string) => void,
+  isLiveClaude: boolean = false,
+  anthropicApiKey?: string
 ): Promise<void> {
   try {
     const res = await fetch(`${API_BASE_URL}/ask`, {
@@ -60,6 +62,8 @@ export async function askQuestionStream(
         query,
         role,
         stream: true,
+        use_live_claude: isLiveClaude,
+        anthropic_api_key: anthropicApiKey || undefined,
       }),
     });
 

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: orchardiq-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: ENVIRONMENT
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: MOCK_LLM_MODE
+        value: "true"
+      - key: PER_IP_RATE_LIMIT_PER_MINUTE
+        value: "60"
+      - key: DAILY_COST_CAP_USD
+        value: "10.0"
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: ANTHROPIC_API_KEY
+        sync: false

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "cleanUrls": true,
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://orchardiq-backend.onrender.com"
+  }
+}

@@ -16,6 +16,8 @@ import { askQuestionStream, StepLog, AnswerPayload } from "@/lib/api";
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("chat");
   const [activeRole, setActiveRole] = useState<string>("analyst");
+  const [isLiveClaude, setIsLiveClaude] = useState<boolean>(false);
+  const [anthropicApiKey, setAnthropicApiKey] = useState<string>("");
   const [inputQuery, setInputQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [steps, setSteps] = useState<StepLog[]>([]);
@@ -50,7 +52,9 @@ export default function Home() {
       (err) => {
         console.error("Ask error:", err);
         setIsLoading(false);
-      }
+      },
+      isLiveClaude,
+      anthropicApiKey
     );
   };
 
@@ -61,12 +65,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Navigation Header with Live Role Switcher */}
+      {/* Navigation Header with Live Role Switcher & Live Claude Toggle */}
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         activeRole={activeRole}
         setActiveRole={setActiveRole}
+        isLiveClaude={isLiveClaude}
+        setIsLiveClaude={setIsLiveClaude}
+        anthropicApiKey={anthropicApiKey}
+        setAnthropicApiKey={setAnthropicApiKey}
       />
 
       {/* Main Content Area */}

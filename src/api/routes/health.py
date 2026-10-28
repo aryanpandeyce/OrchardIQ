@@ -4,6 +4,7 @@ import time
 from typing import Dict, Any
 from fastapi import APIRouter
 
+from src.config import settings
 from src.warehouse.query_engine import WarehouseQueryEngine
 from src.ml.registry import ModelRegistry
 
@@ -30,6 +31,9 @@ def health_check() -> Dict[str, Any]:
         "status": "healthy" if warehouse_ok else "degraded",
         "timestamp": time.time(),
         "version": "0.1.0",
+        "demo_mode": settings.DEMO_MODE,
+        "anthropic_configured": bool(settings.ANTHROPIC_API_KEY),
+        "daily_cost_cap_usd": settings.DAILY_COST_CAP_USD,
         "subsystems": {
             "duckdb_lakehouse": "CONNECTED" if warehouse_ok else "DISCONNECTED",
             "chroma_vector_store": "READY",
@@ -37,3 +41,4 @@ def health_check() -> Dict[str, Any]:
             "dual_sided_governance": "ENFORCING",
         },
     }
+

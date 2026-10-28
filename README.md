@@ -1,14 +1,28 @@
 # OrchardIQ: Autonomous Lakehouse Intelligence & Dual-Sided Governance
 
-[![CI Pipeline](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/ci.yml/badge.svg)](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/ci.yml)
-[![CD Deploy](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/deploy.yml/badge.svg)](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/deploy.yml)
+[![CI Pipeline](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/ci.yml)
+[![CD Deploy](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/aryanpandeyce/OrchardIQ/actions/workflows/deploy.yml)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%20%7C%203.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.5-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![DuckDB Lakehouse](https://img.shields.io/badge/Lakehouse-DuckDB%20%2B%20Parquet-FFF000?logo=duckdb&logoColor=black)](https://duckdb.org/)
-[![Tests Passing](https://img.shields.io/badge/Pytest-58%20Passing-brightgreen.svg)]()
+[![Tests Passing](https://img.shields.io/badge/Pytest-58%20Passing-brightgreen.svg)](https://github.com/aryanpandeyce/OrchardIQ/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > **OrchardIQ** is an enterprise-grade autonomous data intelligence and analytics lakehouse platform for **Orchard Inc.** (a global consumer-electronics enterprise). Powered by a multi-agent LangGraph orchestration state machine, an in-process DuckDB/Parquet star-schema lakehouse (~2.2M fact records), PyTorch statistical forecasting, and an AST-level **Dual-Sided Governance Agent** enforcing compile-time SQL safety, role-based column masking, and immutable cryptographic audit trails.
+
+---
+
+### 🌐 Live Production Deployments
+- 🖥️ **Live Web Application**: [https://orchardiq.vercel.app](https://orchardiq.vercel.app) *(Runs high-fidelity DEMO_MODE by default)*
+- ⚡ **Live FastAPI Backend & Swagger Docs**: [https://orchardiq-backend.onrender.com/docs](https://orchardiq-backend.onrender.com/docs)
+- 🤗 **Hugging Face Spaces Mirror**: [https://huggingface.co/spaces/aryanpandeyce/OrchardIQ-Backend](https://huggingface.co/spaces/aryanpandeyce/OrchardIQ-Backend)
+- 📦 **GitHub Repository**: [https://github.com/aryanpandeyce/OrchardIQ](https://github.com/aryanpandeyce/OrchardIQ)
+
+---
+
+## 🎬 Interactive Platform Demo
+
+![OrchardIQ Interactive Demo Tour](docs/demo.gif)
 
 ---
 

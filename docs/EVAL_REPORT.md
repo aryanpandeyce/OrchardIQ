@@ -14,8 +14,8 @@ This document reports the empirical evaluation metrics for OrchardIQ across both
 | **SQL Execution Accuracy** | $\ge 95.0\%$ | **100.0%** | **97.6%** | 🟢 PASSED |
 | **Factual & Semantic Correctness** | $\ge 90.0\%$ | **64.3%** | **95.2%** | 🟢 PASSED |
 | **Dual-Sided Guardrail Pass Rate** | $100.0\%$ | **95.2%** | **100.0%** | 🟢 PASSED |
-| **p50 Latency (Median)** | $< 1.50\text{s}$ | **0.027s** | **1.18s** | 🟢 PASSED |
-| **p95 Latency (95th percentile)** | $< 3.00\text{s}$ | **0.19s** | **2.45s** | 🟢 PASSED |
+| **p50 Latency (Median)** | $< 1.50\text{s}$ | **0.026s** | **1.18s** | 🟢 PASSED |
+| **p95 Latency (95th percentile)** | $< 3.00\text{s}$ | **0.169s** | **2.45s** | 🟢 PASSED |
 | **Total Benchmark Cost** | $< \$1.00$ | **\$0.000** | **\$0.3840** | 🟢 PASSED |
 
 ---
