@@ -257,7 +257,7 @@ class MockLLMProvider(LLMProvider):
                 )
 
         # 6. Customer PII Query
-        elif "customer" in p_lower or "pii" in p_lower:
+        elif "customer" in p_lower or "pii" in p_lower or "membership" in p_lower:
             content = (
                 "```sql\n"
                 "SELECT \n"
@@ -273,7 +273,148 @@ class MockLLMProvider(LLMProvider):
                 "```"
             )
 
-        # 7. General Revenue / Top Products Query
+        # Unauthorized Table Check
+        elif "unauthorized_table" in p_lower:
+            content = "```sql\nSELECT customer_id, ssn, credit_card_num FROM unauthorized_table;\n```"
+
+        # Analyst Access to Finance Ledger Check
+        elif "can an analyst access" in p_lower and "fact_finance_revenue" in p_lower:
+            content = "```sql\nSELECT * FROM fact_finance_revenue LIMIT 5;\n```"
+
+        # 7. Warranty & Support Claims
+        elif "claim" in p_lower or "warranty" in p_lower or "repair" in p_lower:
+            if "cost" in p_lower:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    product_id, \n"
+                    "    COUNT(*) as total_claims, \n"
+                    "    ROUND(SUM(repair_cost), 2) as total_claim_cost \n"
+                    "FROM fact_support_claims \n"
+                    "WHERE year = 2025 \n"
+                    "GROUP BY 1 \n"
+                    "ORDER BY total_claim_cost DESC \n"
+                    "LIMIT 5;\n"
+                    "```"
+                )
+            elif "type" in p_lower:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    claim_type, \n"
+                    "    COUNT(*) as count \n"
+                    "FROM fact_support_claims \n"
+                    "WHERE year = 2025 \n"
+                    "GROUP BY 1 \n"
+                    "ORDER BY count DESC;\n"
+                    "```"
+                )
+            else:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    COUNT(*) as total_claims, \n"
+                    "    ROUND(SUM(repair_cost), 2) as total_cost \n"
+                    "FROM fact_support_claims \n"
+                    "WHERE year = 2025;\n"
+                    "```"
+                )
+
+        # 8. Returns & Quality
+        elif "return" in p_lower or "refund" in p_lower:
+            if "reason" in p_lower:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    return_reason, \n"
+                    "    COUNT(*) as count \n"
+                    "FROM fact_returns \n"
+                    "WHERE year = 2025 \n"
+                    "GROUP BY 1 \n"
+                    "ORDER BY count DESC;\n"
+                    "```"
+                )
+            elif "refund" in p_lower:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    ROUND(SUM(refund_amount), 2) as total_refunds \n"
+                    "FROM fact_returns \n"
+                    "WHERE year = 2025;\n"
+                    "```"
+                )
+            else:
+                content = (
+                    "```sql\n"
+                    "SELECT \n"
+                    "    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM fact_sales WHERE year = 2025), 2) as return_rate \n"
+                    "FROM fact_returns \n"
+                    "WHERE year = 2025;\n"
+                    "```"
+                )
+
+        # 9. Marketing Spend
+        elif "marketing" in p_lower or "campaign" in p_lower or "spend" in p_lower or "ad" in p_lower:
+            content = (
+                "```sql\n"
+                "SELECT \n"
+                "    channel, \n"
+                "    ROUND(SUM(spend_usd), 2) as total_spend \n"
+                "FROM fact_marketing_spend \n"
+                "WHERE year = 2025 \n"
+                "GROUP BY 1 \n"
+                "ORDER BY total_spend DESC;\n"
+                "```"
+            )
+
+        # 10. Finance / GAAP Ledger
+        elif "gaap" in p_lower or "finance" in p_lower or "recognized" in p_lower or "deferred" in p_lower:
+            content = (
+                "```sql\n"
+                "SELECT \n"
+                "    fiscal_quarter, \n"
+                "    ROUND(SUM(recognized_net_revenue), 2) as recognized_net_revenue, \n"
+                "    ROUND(SUM(deferred_services_revenue), 2) as deferred_services_revenue \n"
+                "FROM fact_finance_revenue \n"
+                "WHERE fiscal_year = 2025 \n"
+                "GROUP BY 1 \n"
+                "ORDER BY 1;\n"
+                "```"
+            )
+
+        # 11. Discounts & Channels
+        elif "discount" in p_lower:
+            content = (
+                "```sql\n"
+                "SELECT \n"
+                "    ROUND(SUM(discount_amount), 2) as total_discount \n"
+                "FROM fact_sales \n"
+                "WHERE year = 2025;\n"
+                "```"
+            )
+        elif "channel" in p_lower or "online" in p_lower or "retail store" in p_lower:
+            content = (
+                "```sql\n"
+                "SELECT \n"
+                "    channel, \n"
+                "    ROUND(SUM(net_revenue), 2) as channel_revenue \n"
+                "FROM fact_sales \n"
+                "WHERE year = 2025 \n"
+                "GROUP BY 1 \n"
+                "ORDER BY channel_revenue DESC;\n"
+                "```"
+            )
+        elif "total net revenue" in p_lower or "fy 2025 across all" in p_lower:
+            content = (
+                "```sql\n"
+                "SELECT \n"
+                "    ROUND(SUM(net_revenue), 2) as total_net_revenue \n"
+                "FROM fact_sales \n"
+                "WHERE year = 2025;\n"
+                "```"
+            )
+
+        # 12. General Revenue / Top Products Query
         else:
             if "narrator" in (system_prompt or "").lower() or "synthesize" in p_lower:
                 content = (

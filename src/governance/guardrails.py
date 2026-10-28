@@ -76,6 +76,10 @@ class GovernanceGuardrails:
         r"\bupdate\s+\w+\s+set\b",
         r"--\s*drop",
         r";\s*drop",
+        r"/etc/passwd",
+        r"sqlite_master",
+        r"\bcat\s+",
+        r"system\s+shell",
     ]
 
     def check_prompt_injection(self, text: str) -> Tuple[bool, Optional[str]]:

@@ -395,3 +395,20 @@ class OrchardAgentOrchestrator:
         }
 
         return state
+
+
+_default_orchestrator: Optional[OrchardAgentOrchestrator] = None
+
+
+def get_orchestrator() -> OrchardAgentOrchestrator:
+    """Return a shared OrchardAgentOrchestrator singleton."""
+    global _default_orchestrator
+    if _default_orchestrator is None:
+        _default_orchestrator = OrchardAgentOrchestrator()
+    return _default_orchestrator
+
+
+def run_multi_agent_flow(query: str, role: str = "analyst") -> OrchardAgentState:
+    """Convenience helper to invoke the multi-agent graph."""
+    orch = get_orchestrator()
+    return orch.invoke(query=query, role=role)

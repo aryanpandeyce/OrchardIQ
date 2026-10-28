@@ -69,12 +69,12 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 7: Evals, Observability & Data Pipelines
-- [ ] **TASK-7.1**: Construct golden evaluation benchmark set of 40+ enterprise business questions with ground truth SQL and expected facts (`evals/golden_set.json`). *[REQ-API-04]*
-- [ ] **TASK-7.2**: Implement evaluation runner measuring SQL execution accuracy, answer correctness, guardrail pass rate, and p50/p95 latency (`evals/runner.py`). *[REQ-API-04]*
-- [ ] **TASK-7.3**: Implement OpenTelemetry-style structured tracing and Prometheus `/metrics` exporter (`src/observability/`). *[REQ-API-02, REQ-API-03]*
-- [ ] **TASK-7.4**: Implement Data Quality validation engine checking freshness, null rates, and row-count drift on the lakehouse (`src/pipelines/quality.py`). *[REQ-API-01]*
-- [ ] **TASK-7.5**: Implement batch ETL orchestration pipeline (`raw -> staging -> marts`) with automated DQ gates (`src/pipelines/etl.py`). *[REQ-API-01]*
-- [ ] **TASK-7.6**: Implement simulated near-real-time event streaming pipeline feeding live transactions to the UI tile (`src/pipelines/stream.py`). *[REQ-UI-01]*
+- [x] **TASK-7.1**: Construct golden evaluation benchmark set of 40+ enterprise business questions with ground truth SQL and expected facts (`evals/golden_set.json`). *[REQ-API-04]*
+- [x] **TASK-7.2**: Implement evaluation runner measuring SQL execution accuracy, answer correctness, guardrail pass rate, and p50/p95 latency (`evals/runner.py`). *[REQ-API-04]*
+- [x] **TASK-7.3**: Implement OpenTelemetry-style structured tracing and Prometheus `/metrics` exporter (`src/observability/`). *[REQ-API-02, REQ-API-03]*
+- [x] **TASK-7.4**: Implement Data Quality validation engine checking freshness, null rates, and row-count drift on the lakehouse (`src/pipelines/quality.py`). *[REQ-API-01]*
+- [x] **TASK-7.5**: Implement batch ETL orchestration pipeline (`raw -> staging -> marts`) with automated DQ gates (`src/pipelines/etl.py`). *[REQ-API-01]*
+- [x] **TASK-7.6**: Implement simulated near-real-time event streaming pipeline feeding live transactions to the UI tile (`src/pipelines/stream.py`). *[REQ-UI-01]*
 
 ---
 

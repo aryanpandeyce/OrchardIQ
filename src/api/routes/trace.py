@@ -6,6 +6,7 @@ from fastapi import APIRouter, HTTPException, Depends
 
 from src.api.auth import get_current_role
 from src.governance.audit import get_audit_manager
+from src.observability.tracer import tracer
 
 router = APIRouter(prefix="/trace", tags=["Observability & Tracing"])
 
@@ -13,9 +14,15 @@ router = APIRouter(prefix="/trace", tags=["Observability & Tracing"])
 @router.get("/{run_id}")
 def get_run_trace(run_id: str, role: str = Depends(get_current_role)):
     """Retrieve detailed step trace, latency, and audit metadata for an execution run."""
+    trace = tracer.get_trace(run_id)
     audit_mgr = get_audit_manager()
     records = audit_mgr.get_recent_logs(limit=100)
     matching_audit = next((r for r in records if r.get("audit_id", "").endswith(run_id[:6])), None)
+
+    if trace:
+        data = trace.to_dict()
+        data["audit_link"] = matching_audit
+        return data
 
     return {
         "run_id": run_id,
@@ -32,3 +39,4 @@ def get_run_trace(run_id: str, role: str = Depends(get_current_role)):
         "total_latency_ms": 408,
         "audit_link": matching_audit,
     }
+
