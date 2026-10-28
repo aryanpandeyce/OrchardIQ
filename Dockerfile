@@ -38,6 +38,7 @@ ENV DEMO_MODE=true
 ENV ENVIRONMENT=production
 
 # Copy application source code and configurations
+RUN mkdir -p ./models/registry ./data/sample ./data/warehouse ./data/chroma
 COPY pyproject.toml .
 COPY src/ ./src/
 COPY docs/knowledge_base/ ./docs/knowledge_base/

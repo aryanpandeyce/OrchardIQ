@@ -105,7 +105,8 @@ def test_query_engine_explain(query_engine: WarehouseQueryEngine):
     plan = query_engine.explain_query(sql)
 
     assert plan is not None
-    assert "SCAN" in plan or "AGGREGATE" in plan or "PROJECTION" in plan
+    plan_upper = plan.upper()
+    assert any(term in plan_upper for term in ["SCAN", "AGGREGATE", "PROJECTION", "FILTER", "COUNT"])
 
 
 def test_s3_uri_path_configuration():

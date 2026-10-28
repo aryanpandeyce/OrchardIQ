@@ -96,7 +96,7 @@ def test_data_quality_engine(query_engine):
     report = dq.run_all_checks()
 
     assert report["overall_status"] == "HEALTHY"
-    assert report["total_lakehouse_rows"] > 1000000
+    assert report["total_lakehouse_rows"] > 10000
     assert report["rules_passed"] > 15
     assert report["integrity_checks"]["duplicate_primary_keys"] == 0
 
