@@ -26,13 +26,13 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 3: SQL Agent & Dual-Sided Governance Agent
-- [ ] **TASK-3.1**: Build LLM provider abstraction supporting Anthropic Claude (via API key) and offline deterministic MockLLM (`src/agents/llm_provider.py`). *[REQ-SQL-01]*
-- [ ] **TASK-3.2**: Implement schema-grounded SQL Agent prompting with DuckDB dialect rules, date arithmetic, and schema context (`src/agents/sql_agent.py`). *[REQ-SQL-01]*
-- [ ] **TASK-3.3**: Implement autonomous self-correction loop in SQL Agent (up to 3 retries on syntax/runtime errors) (`src/agents/sql_agent.py`). *[REQ-SQL-03]*
-- [ ] **TASK-3.4**: Implement Pre-Execution Governance Agent with `sqlglot` AST validation enforcing SELECT-only allowlist and blocking mutations/DDL (`src/governance/guardrails.py`). *[REQ-GOV-01]*
-- [ ] **TASK-3.5**: Implement adversarial prompt injection shield blocking hostile prompts and malicious support ticket inputs (`src/governance/guardrails.py`). *[REQ-GOV-02]*
-- [ ] **TASK-3.6**: Implement Post-Execution Governance Agent enforcing Role-Based Column Masking (SHA-256 tokens for analyst PII) and row-count limits (`src/governance/masking.py`). *[REQ-GOV-03, REQ-GOV-04, REQ-GOV-05]*
-- [ ] **TASK-3.7**: Implement persistent immutable Audit Log table tracking all query decisions, roles, and safety events (`src/governance/audit.py`). *[REQ-GOV-05]*
+- [x] **TASK-3.1**: Build LLM provider abstraction supporting Anthropic Claude (via API key) and offline deterministic MockLLM (`src/agents/llm_provider.py`). *[REQ-SQL-01]*
+- [x] **TASK-3.2**: Implement schema-grounded SQL Agent prompting with DuckDB dialect rules, date arithmetic, and schema context (`src/agents/sql_agent.py`). *[REQ-SQL-01]*
+- [x] **TASK-3.3**: Implement autonomous self-correction loop in SQL Agent (up to 3 retries on syntax/runtime errors) (`src/agents/sql_agent.py`). *[REQ-SQL-03]*
+- [x] **TASK-3.4**: Implement Pre-Execution Governance Agent with `sqlglot` AST validation enforcing SELECT-only allowlist and blocking mutations/DDL (`src/governance/guardrails.py`). *[REQ-GOV-01]*
+- [x] **TASK-3.5**: Implement adversarial prompt injection shield blocking hostile prompts and malicious support ticket inputs (`src/governance/guardrails.py`). *[REQ-GOV-02]*
+- [x] **TASK-3.6**: Implement Post-Execution Governance Agent enforcing Role-Based Column Masking (SHA-256 tokens for analyst PII) and row-count limits (`src/governance/masking.py`). *[REQ-GOV-03, REQ-GOV-04, REQ-GOV-05]*
+- [x] **TASK-3.7**: Implement persistent immutable Audit Log table tracking all query decisions, roles, and safety events (`src/governance/audit.py`). *[REQ-GOV-05]*
 
 ---
 
