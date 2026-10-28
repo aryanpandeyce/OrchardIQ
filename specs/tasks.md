@@ -16,12 +16,12 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 2: Catalog & Hybrid RAG Subsystem
-- [ ] **TASK-2.1**: Implement VectorStore interface and ChromaDB provider supporting collection creation, metadata filtering, and persistent storage (`src/rag/vector_store.py`). *[REQ-RAG-01]*
-- [ ] **TASK-2.2**: Implement document parsing, chunking, and metadata tagging for 31 knowledge base Markdown docs and support tickets (`src/rag/indexer.py`). *[REQ-RAG-01]*
-- [ ] **TASK-2.3**: Implement Hybrid Retriever combining ChromaDB dense vector search with BM25 sparse keyword search and reciprocal rank fusion (`src/rag/retriever.py`). *[REQ-RAG-02]*
-- [ ] **TASK-2.4**: Implement structured citation generator attributing source documents, titles, and excerpt line ranges (`src/rag/citations.py`). *[REQ-RAG-03]*
-- [ ] **TASK-2.5**: Build automated RAG retrieval evaluation harness testing Hit-Rate@k and precision on a golden retrieval query set (`tests/test_rag.py`). *[REQ-RAG-04]*
-- [ ] **TASK-2.6**: Create GitHub Actions CI workflow (`.github/workflows/ci.yml`) running lint, type checks, and pytest on push/PR. *[REQ-API-01]*
+- [x] **TASK-2.1**: Implement VectorStore interface and ChromaDB provider supporting collection creation, metadata filtering, and persistent storage (`src/rag/vector_store.py`). *[REQ-RAG-01]*
+- [x] **TASK-2.2**: Implement document parsing, chunking, and metadata tagging for 31 knowledge base Markdown docs and support tickets (`src/rag/indexer.py`). *[REQ-RAG-01]*
+- [x] **TASK-2.3**: Implement Hybrid Retriever combining ChromaDB dense vector search with BM25 sparse keyword search and reciprocal rank fusion (`src/rag/retriever.py`). *[REQ-RAG-02]*
+- [x] **TASK-2.4**: Implement structured citation generator attributing source documents, titles, and excerpt line ranges (`src/rag/citations.py`). *[REQ-RAG-03]*
+- [x] **TASK-2.5**: Build automated RAG retrieval evaluation harness testing Hit-Rate@k and precision on a golden retrieval query set (`tests/test_rag.py`). *[REQ-RAG-04]*
+- [x] **TASK-2.6**: Create GitHub Actions CI workflow (`.github/workflows/ci.yml`) running lint, type checks, and pytest on push/PR. *[REQ-API-01]*
 
 ---
 

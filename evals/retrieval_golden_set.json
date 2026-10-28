@@ -1,0 +1,62 @@
+[
+  {
+    "query": "How is Net Revenue defined and calculated?",
+    "expected_files": ["net_revenue.md", "sales_and_revenue_metrics.md"],
+    "expected_keywords": ["Gross Revenue", "Discount Amount"]
+  },
+  {
+    "query": "What is the formula for PearWatch attach rate?",
+    "expected_files": ["attach_rate.md"],
+    "expected_keywords": ["Attach Rate", "PearWatch", "PearPhone"]
+  },
+  {
+    "query": "What caused the claims spike for PearPhone 16 Pro in APAC during Q3 2025?",
+    "expected_files": ["2025-q3-apac-battery-claims-spike.md"],
+    "expected_keywords": ["BP-2025-08", "Battery Degradation/Thermal", "Shenzhen"]
+  },
+  {
+    "query": "Why did marketing spend drop in EMEA during Q2 and how did it affect retail?",
+    "expected_files": ["2025-q2-emea-marketing-cut-sales-impact.md"],
+    "expected_keywords": ["WWPC", "foot traffic", "contraction"]
+  },
+  {
+    "query": "What caused customer returns on PearBook Pro 16\" in early 2025?",
+    "expected_files": ["2025-q1-pearbook-display-flicker-returns.md"],
+    "expected_keywords": ["v14.2", "DisplayPort", "flicker"]
+  },
+  {
+    "query": "What was the observed attach rate during the AMER Q4 holiday promotion?",
+    "expected_files": ["2025-q4-amer-pearwatch-ultra-attach-surge.md"],
+    "expected_keywords": ["Orchard Adventure Pro", "PearWatch Ultra 2", "41.2%"]
+  },
+  {
+    "query": "Which columns in dim_customer are classified as Restricted PII?",
+    "expected_files": ["dim_customer.md", "pii_governance_standards.md"],
+    "expected_keywords": ["email", "phone", "first_name", "last_name"]
+  },
+  {
+    "query": "What are the columns and primary key of fact_sales?",
+    "expected_files": ["fact_sales.md"],
+    "expected_keywords": ["sale_id", "gross_revenue", "net_revenue"]
+  },
+  {
+    "query": "What is the acceptable SLA return rate threshold for hardware?",
+    "expected_files": ["return_rate.md", "anomaly_thresholds.md"],
+    "expected_keywords": ["1.5%", "Return Rate"]
+  },
+  {
+    "query": "Find reports of battery swelling and overheating on PearPhone 16 Pro",
+    "expected_files": ["support_tickets.jsonl", "2025-q3-apac-battery-claims-spike.md"],
+    "expected_keywords": ["swelling", "overheating"]
+  },
+  {
+    "query": "What table records GAAP revenue and deferred services?",
+    "expected_files": ["fact_finance_revenue.md"],
+    "expected_keywords": ["recognized_net_revenue", "deferred_services_revenue"]
+  },
+  {
+    "query": "What are the rules regarding data freshness in the warehouse?",
+    "expected_files": ["dq_rules_and_freshness.md"],
+    "expected_keywords": ["SLAs", "freshness", "02:00 UTC"]
+  }
+]
