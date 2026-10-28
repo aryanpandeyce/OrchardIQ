@@ -1,0 +1,29 @@
+[
+  {
+    "product_id": "PRD-PHN-16P",
+    "product_name": "PearPhone 16 Pro",
+    "category": "Smartphone",
+    "product_line": "Pro",
+    "price_usd": 999.0,
+    "cost_usd": 415.0,
+    "warranty_months": 12
+  },
+  {
+    "product_id": "PRD-WCH-ULT2",
+    "product_name": "PearWatch Ultra 2",
+    "category": "Wearables",
+    "product_line": "Ultra",
+    "price_usd": 799.0,
+    "cost_usd": 295.0,
+    "warranty_months": 24
+  },
+  {
+    "product_id": "PRD-NBK-16P",
+    "product_name": "PearBook Pro 16\"",
+    "category": "Laptop",
+    "product_line": "Pro",
+    "price_usd": 2499.0,
+    "cost_usd": 1050.0,
+    "warranty_months": 12
+  }
+]

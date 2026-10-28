@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local Environment Variables & Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Local Data artifacts (can be regenerated via CLI)
+data/warehouse/*.duckdb*
+data/warehouse/marts/
+data/warehouse/staging/
+data/warehouse/raw/
+data/unstructured/*.jsonl
+data/unstructured/*.parquet
+data/chroma/
+
+# Node / Frontend (Phase 6)
+frontend/.next/
+frontend/node_modules/
+frontend/out/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
