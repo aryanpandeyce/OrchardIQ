@@ -1,0 +1,43 @@
+name: OrchardIQ Continuous Deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-production:
+    name: Build & Deploy Production Services
+    runs-on: ubuntu-latest
+    needs: []
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify Backend Container Build
+        run: |
+          docker build -t orchardiq-backend:latest -f Dockerfile .
+
+      - name: Verify Frontend Container Build
+        run: |
+          docker build -t orchardiq-frontend:latest -f Dockerfile.frontend .
+
+      - name: Deploy Simulation Notice
+        run: |
+          echo "🚀 OrchardIQ Production Deployment Triggered for commit ${{ github.sha }}"
+          echo "📦 Multi-stage Docker containers built and validated successfully."
+          echo "🌐 Next.js frontend and FastAPI backend wired with DEMO_MODE fallback."

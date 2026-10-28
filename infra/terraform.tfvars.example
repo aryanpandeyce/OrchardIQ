@@ -1,0 +1,5 @@
+aws_region          = "us-west-2"
+environment         = "production"
+ecr_repository_url  = "123456789012.dkr.ecr.us-west-2.amazonaws.com/orchardiq-backend"
+backend_cpu         = "1024"
+backend_memory      = "2048"

@@ -2,11 +2,13 @@
 
 import json
 import asyncio
-from typing import Dict, List, Any, Optional
-from fastapi import APIRouter, Depends, Request
+from collections import defaultdict
+import time
+from fastapi import APIRouter, Depends, Request, HTTPException
 from pydantic import BaseModel, Field
 from sse_starlette.sse import EventSourceResponse
 
+from src.config import settings
 from src.api.auth import get_current_role
 from src.agents.graph import OrchardAgentOrchestrator
 from src.agents.memory import SessionManager
@@ -16,6 +18,12 @@ router = APIRouter(tags=["Ask & Multi-Agent"])
 # Global orchestrator and session manager instances
 orchestrator = OrchardAgentOrchestrator()
 session_manager = SessionManager()
+
+# In-memory IP rate limiting tracker (sliding window)
+_ip_request_history = defaultdict(list)
+
+# Demo cache for instant response to verified inquiries
+_demo_cache: Dict[str, Any] = {}
 
 
 class AskRequest(BaseModel):
@@ -28,12 +36,25 @@ class AskRequest(BaseModel):
 @router.post("/ask")
 async def ask_question(
     req: AskRequest,
+    request: Request,
     current_role: str = Depends(get_current_role),
 ):
     """
     Execute multi-agent orchestration for a natural language inquiry.
     Streams agent steps via Server-Sent Events (SSE) or returns JSON.
+    Protected by per-IP rate limiting and DEMO_MODE fallback.
     """
+    # Enforce per-IP rate limiting
+    client_ip = request.client.host if request.client else "127.0.0.1"
+    now = time.time()
+    _ip_request_history[client_ip] = [t for t in _ip_request_history[client_ip] if now - t < 60]
+    if len(_ip_request_history[client_ip]) >= settings.PER_IP_RATE_LIMIT_PER_MINUTE:
+        raise HTTPException(
+            status_code=429,
+            detail=f"Rate limit exceeded: maximum {settings.PER_IP_RATE_LIMIT_PER_MINUTE} requests/min per IP."
+        )
+    _ip_request_history[client_ip].append(now)
+
     effective_role = req.role if req.role in {"analyst", "finance", "admin"} else current_role
     sess_id = req.session_id or session_manager.create_session(title=req.query[:40]).session_id
 

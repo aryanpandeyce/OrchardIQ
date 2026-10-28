@@ -1,0 +1,50 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: orchardiq-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MOCK_LLM_MODE=true
+      - DEMO_MODE=true
+      - ENVIRONMENT=production
+      - PER_IP_RATE_LIMIT_PER_MINUTE=60
+      - DAILY_COST_CAP_USD=10.0
+      - DUCKDB_MEMORY_LIMIT=2GB
+    volumes:
+      - duckdb_data:/app/data/warehouse
+      - chroma_data:/app/data/chroma
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 25s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: orchardiq-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NODE_ENV=production
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:3000"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  duckdb_data:
+  chroma_data:

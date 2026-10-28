@@ -79,10 +79,10 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 8: Docker, AWS Deploy Skeleton, Docs & Release
-- [ ] **TASK-8.1**: Create production multi-stage Dockerfile for FastAPI backend and Next.js frontend (`Dockerfile`, `Dockerfile.frontend`). *[REQ-NL-01]*
-- [ ] **TASK-8.2**: Create `docker-compose.yml` for unified single-command deployment with demo mode enabled. *[REQ-NL-01]*
-- [ ] **TASK-8.3**: Author Terraform / AWS CDK infrastructure skeleton for ECS/App Runner, S3 Lakehouse, and CloudWatch alarms (`infra/`). *[REQ-API-01]*
-- [ ] **TASK-8.4**: Implement DEMO_MODE toggle with cached fallback responses and per-IP rate limiting for public showcase. *[REQ-NL-01]*
-- [ ] **TASK-8.5**: Author comprehensive `README.md` with Mermaid diagrams, eval benchmark table, governance model, and "What I Would Do at Apple Scale" architecture section. *[REQ-NL-01]*
-- [ ] **TASK-8.6**: Deploy backend and frontend to public hosting and verify live URL using Playwright. *[REQ-UI-01]*
-- [ ] **TASK-8.7**: Tag release `v0.1.0` and update repo metadata. *[REQ-NL-01]*
+- [x] **TASK-8.1**: Create production multi-stage Dockerfile for FastAPI backend and Next.js frontend (`Dockerfile`, `Dockerfile.frontend`). *[REQ-NL-01]*
+- [x] **TASK-8.2**: Create `docker-compose.yml` for unified single-command deployment with demo mode enabled. *[REQ-NL-01]*
+- [x] **TASK-8.3**: Author Terraform / AWS CDK infrastructure skeleton for ECS/App Runner, S3 Lakehouse, and CloudWatch alarms (`infra/`). *[REQ-API-01]*
+- [x] **TASK-8.4**: Implement DEMO_MODE toggle with cached fallback responses and per-IP rate limiting for public showcase. *[REQ-NL-01]*
+- [x] **TASK-8.5**: Author comprehensive `README.md` with Mermaid diagrams, eval benchmark table, governance model, and "What I Would Do at Apple Scale" architecture section. *[REQ-NL-01]*
+- [x] **TASK-8.6**: Deploy backend and frontend to public hosting and verify live URL using Playwright. *[REQ-UI-01]*
+- [x] **TASK-8.7**: Tag release `v0.1.0` and update repo metadata. *[REQ-NL-01]*

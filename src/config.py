@@ -39,7 +39,10 @@ class Settings(BaseSettings):
     # LLM & Agent Config
     ANTHROPIC_API_KEY: Optional[str] = None
     MOCK_LLM_MODE: bool = True
-    ENVIRONMENT: str = "development"
+    DEMO_MODE: bool = True
+    PER_IP_RATE_LIMIT_PER_MINUTE: int = 60
+    DAILY_COST_CAP_USD: float = 10.0
+    ENVIRONMENT: str = "production"
     LOG_LEVEL: str = "INFO"
 
     # Security & Governance
