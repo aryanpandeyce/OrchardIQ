@@ -58,13 +58,13 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 6: Modern Web Application Workspace (Next.js 15)
-- [ ] **TASK-6.1**: Scaffold Next.js 15 application with TypeScript, Tailwind CSS, and Recharts in `frontend/`. *[REQ-UI-01]*
-- [ ] **TASK-6.2**: Implement custom design system tokens, dark/light mode toggle, typography, and responsive navigation shell (`frontend/src/`). *[REQ-UI-01]*
-- [ ] **TASK-6.3**: Implement Chat Workspace with streaming agent-step timeline, markdown narrative renderer, Recharts visualizer, SQL viewer, citations, and governance badges (`frontend/src/components/chat/`). *[REQ-UI-01, REQ-UI-03]*
-- [ ] **TASK-6.4**: Implement live Role Switcher (`analyst`, `finance`, `admin`) demonstrating immediate PII masking in query outputs (`frontend/src/components/RoleSwitcher.tsx`). *[REQ-UI-02]*
-- [ ] **TASK-6.5**: Implement clickable Demo Question chips for the 4 injected business stories with immediate zero-setup execution (`frontend/src/components/DemoChips.tsx`). *[REQ-UI-03]*
-- [ ] **TASK-6.6**: Build dedicated pages: Data Catalog Browser, Eval Results Dashboard, Data Quality Monitor, Audit Log, and Live Stream Tile (`frontend/src/app/`). *[REQ-UI-01]*
-- [ ] **TASK-6.7**: Write Playwright end-to-end smoke tests capturing screenshots and verifying live UI interactions (`frontend/tests/smoke.spec.ts`). *[REQ-UI-01, REQ-UI-03]*
+- [x] **TASK-6.1**: Scaffold Next.js 15 application with TypeScript, Tailwind CSS, and Recharts in `frontend/`. *[REQ-UI-01]*
+- [x] **TASK-6.2**: Implement custom design system tokens, dark/light mode toggle, typography, and responsive navigation shell (`frontend/src/`). *[REQ-UI-01]*
+- [x] **TASK-6.3**: Implement Chat Workspace with streaming agent-step timeline, markdown narrative renderer, Recharts visualizer, SQL viewer, citations, and governance badges (`frontend/src/components/`). *[REQ-UI-01, REQ-UI-03]*
+- [x] **TASK-6.4**: Implement live Role Switcher (`analyst`, `finance`, `admin`) demonstrating immediate PII masking in query outputs (`frontend/src/components/Header.tsx`). *[REQ-UI-02]*
+- [x] **TASK-6.5**: Implement clickable Demo Question chips for the 4 injected business stories with immediate zero-setup execution (`frontend/src/components/DemoChips.tsx`). *[REQ-UI-03]*
+- [x] **TASK-6.6**: Build dedicated pages: Data Catalog Browser, Eval Results Dashboard, Data Quality Monitor, Audit Log, and Live Stream Tile (`frontend/src/components/`). *[REQ-UI-01]*
+- [x] **TASK-6.7**: Write Playwright end-to-end smoke tests capturing screenshots and verifying live UI interactions (`frontend/tests/smoke.spec.ts`). *[REQ-UI-01, REQ-UI-03]*
 
 ---
 
