@@ -131,15 +131,45 @@ class HybridRetriever:
 
     def __init__(
         self,
-        vector_store: VectorStore,
+        vector_store: Optional[VectorStore] = None,
         documents: Optional[List[Document]] = None,
         rrf_k: int = 60,
     ):
+        if vector_store is None:
+            from src.rag.vector_store import ChromaVectorStore
+            vector_store = ChromaVectorStore()
         self.vector_store = vector_store
         self.bm25_index = BM25Index()
         self.rrf_k = rrf_k
+
+        if not documents:
+            from pathlib import Path
+            docs_dir = Path("docs/knowledge_base")
+            if docs_dir.exists():
+                corpus_docs = []
+                for file_path in docs_dir.glob("**/*.md"):
+                    try:
+                        text = file_path.read_text(encoding="utf-8")
+                        title = file_path.stem.replace("_", " ").title()
+                        cat = file_path.parent.name if file_path.parent.name != "knowledge_base" else "General"
+                        corpus_docs.append(
+                            Document(
+                                doc_id=f"doc_{file_path.stem}",
+                                text=text,
+                                metadata={"title": title, "category": cat, "source_file": str(file_path)},
+                            )
+                        )
+                    except Exception:
+                        pass
+                documents = corpus_docs
+
         if documents:
             self.bm25_index.index_documents(documents)
+            try:
+                if self.vector_store.count() == 0:
+                    self.vector_store.add_documents(documents)
+            except Exception:
+                pass
 
     def update_bm25_documents(self, documents: List[Document]) -> None:
         """Update or initialize the BM25 sparse keyword index."""
@@ -150,10 +180,15 @@ class HybridRetriever:
         query: str,
         top_k: int = 5,
         filters: Optional[Dict[str, Any]] = None,
+        doc_type: Optional[str] = None,
         dense_weight: float = 0.5,
         sparse_weight: float = 0.5,
     ) -> List[Citation]:
         """Execute hybrid search with Reciprocal Rank Fusion and return Citation objects."""
+        if doc_type:
+            filters = dict(filters) if filters else {}
+            filters["doc_type"] = doc_type
+
         candidate_multiplier = max(2, top_k * 2)
 
         # 1. Dense Semantic Search

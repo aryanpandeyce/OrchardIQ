@@ -139,6 +139,10 @@ class AuditManager:
             filtered = [r for r in filtered if r.decision == decision]
         return list(reversed(filtered))[:limit]
 
+    def get_recent_logs(self, limit: int = 100) -> List[Dict[str, Any]]:
+        """Return serialized list of recent audit events."""
+        return [r.to_dict() for r in self.get_logs(limit=limit)]
+
     def count(self) -> int:
         return len(self._logs)
 

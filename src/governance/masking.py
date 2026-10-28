@@ -1,7 +1,7 @@
 """Post-execution Role-Based Access Control (RBAC) column masking for Restricted PII."""
 
 import hashlib
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 
 
 PII_COLUMNS = {
@@ -65,10 +65,12 @@ def mask_value(column_name: str, value: Any, user_role: str) -> Any:
 
 def mask_result_rows(
     rows: List[Dict[str, Any]],
-    user_role: str = "analyst",
+    user_role: Optional[str] = None,
+    role: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
     """Mask all Restricted PII fields in query result rows for non-admin roles."""
-    if user_role == "admin" or not rows:
+    effective_role = role or user_role or "analyst"
+    if effective_role == "admin" or not rows:
         return rows
 
     masked_rows = []

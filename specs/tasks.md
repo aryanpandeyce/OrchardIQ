@@ -47,13 +47,13 @@ This checkable task list maps directly to requirements in `specs/requirements.md
 ---
 
 ## Phase 5: LangGraph Multi-Agent Orchestration & FastAPI
-- [ ] **TASK-5.1**: Define typed `AgentState` schema and multi-agent graph with Router/Planner, RAG, SQL, Governance, Analyst, and Narrator (`src/agents/graph.py`). *[REQ-AGENT-01]*
-- [ ] **TASK-5.2**: Implement Narrator Agent synthesizing plain-English executive summaries and declarative Recharts JSON specifications (`src/agents/narrator_agent.py`). *[REQ-NL-01, REQ-NL-03]*
-- [ ] **TASK-5.3**: Implement short-term session conversation memory and long-term saved insight storage (`src/agents/memory.py`). *[REQ-AGENT-03]*
-- [ ] **TASK-5.4**: Implement FastAPI application router with JWT / API-key authentication supporting 3 roles (`src/api/auth.py`, `src/api/main.py`). *[REQ-API-01]*
-- [ ] **TASK-5.5**: Implement streaming SSE endpoint (`POST /ask`) broadcasting agent reasoning steps in real-time (`src/api/routes/ask.py`). *[REQ-AGENT-02]*
-- [ ] **TASK-5.6**: Implement REST endpoints: `/sessions/{id}`, `/trace/{run_id}`, `/catalog/search`, `/forecast`, `/quality/report`, `/audit`, `/health`, `/metrics` (`src/api/routes/`). *[REQ-API-01]*
-- [ ] **TASK-5.7**: Write end-to-end integration test suite verifying that all 4 injected stories are answered correctly through the agent graph (`tests/test_agents_e2e.py`). *[REQ-NL-02]*
+- [x] **TASK-5.1**: Define typed `AgentState` schema and multi-agent graph with Router/Planner, RAG, SQL, Governance, Analyst, and Narrator (`src/agents/graph.py`). *[REQ-AGENT-01]*
+- [x] **TASK-5.2**: Implement Narrator Agent synthesizing plain-English executive summaries and declarative Recharts JSON specifications (`src/agents/narrator_agent.py`). *[REQ-NL-01, REQ-NL-03]*
+- [x] **TASK-5.3**: Implement short-term session conversation memory and long-term saved insight storage (`src/agents/memory.py`). *[REQ-AGENT-03]*
+- [x] **TASK-5.4**: Implement FastAPI application router with JWT / API-key authentication supporting 3 roles (`src/api/auth.py`, `src/api/main.py`). *[REQ-API-01]*
+- [x] **TASK-5.5**: Implement streaming SSE endpoint (`POST /ask`) broadcasting agent reasoning steps in real-time (`src/api/routes/ask.py`). *[REQ-AGENT-02]*
+- [x] **TASK-5.6**: Implement REST endpoints: `/sessions/{id}`, `/trace/{run_id}`, `/catalog/search`, `/forecast`, `/quality/report`, `/audit`, `/health`, `/metrics` (`src/api/routes/`). *[REQ-API-01]*
+- [x] **TASK-5.7**: Write end-to-end integration test suite verifying that all 4 injected stories are answered correctly through the agent graph (`tests/test_agents_e2e.py`). *[REQ-NL-02]*
 
 ---
 

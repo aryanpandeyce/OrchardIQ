@@ -42,3 +42,6 @@ def format_citations_block(citations: List[Citation], max_citations: int = 5) ->
         lines.append(f"   > \"{clean_excerpt}\"")
 
     return "\n".join(lines)
+
+
+format_citations = format_citations_block

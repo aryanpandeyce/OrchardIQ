@@ -76,6 +76,23 @@ Rules:
             return clean
         return clean
 
+    def run(
+        self,
+        query: str,
+        role: str = "analyst",
+        session_id: str = "default",
+        run_id: str = "default",
+        schema_context: Optional[str] = None,
+    ) -> SQLAgentResult:
+        """Alias for generate_and_execute."""
+        return self.generate_and_execute(
+            question=query,
+            user_role=role,
+            session_id=session_id,
+            run_id=run_id,
+            schema_context=schema_context,
+        )
+
     def generate_and_execute(
         self,
         question: str,

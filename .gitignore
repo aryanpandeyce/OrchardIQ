@@ -48,6 +48,9 @@ data/warehouse/raw/
 data/unstructured/*.jsonl
 data/unstructured/*.parquet
 data/chroma/
+data/sessions/
+data/insights/
+models/
 
 # Node / Frontend (Phase 6)
 frontend/.next/
